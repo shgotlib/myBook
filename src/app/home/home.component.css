@@ -1,0 +1,8 @@
+.book-card {
+    margin-bottom: 30px;
+}
+
+.book-header-image {
+    background-image: url('favicon.ico');
+    background-size: cover;
+}

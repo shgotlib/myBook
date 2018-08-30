@@ -1,0 +1,36 @@
+<div *ngIf="afAuth.authState | async; let user; else showLogin">
+  <mat-card>
+    <form #bookForm="ngForm" (ngSubmit)="save(bookForm.value)">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{book.name ? 'Edit' : 'Add'}} Book</h2>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <input type="hidden" name="href" [(ngModel)]="book.href">
+        <mat-form-field>
+          <input matInput placeholder="Book Name" [(ngModel)]="book.name" required name="name" #name>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Author" [(ngModel)]="book.author" required name="author" #author>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Price" [(ngModel)]="book.price" required name="price" #price>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" min="0" matInput placeholder="Quentity" [(ngModel)]="book.qty" required name="qty" #qty>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!bookForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(book.href)" *ngIf="book.href" type="button">Delete</button>
+        <a mat-button routerLink="/book-list">Cancel</a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
+<ng-template #showLogin>
+  תחילה יש להתחבר כמנהל מערכת
+  <app-login></app-login>
+</ng-template>

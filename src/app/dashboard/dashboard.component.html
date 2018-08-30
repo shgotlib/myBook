@@ -1,0 +1,14 @@
+<div *ngIf="afAuth.authState | async; let user; else showLogin">
+  <button mat-raised-button color="accent" (click)="changeView('books')">books</button>
+  <button mat-raised-button color="accent" (click)="changeView('users')">users</button>
+  <button mat-raised-button color="accent" (click)="changeView('orders')">Orders</button>
+
+  <app-book-list *ngIf="current == 'books'"></app-book-list>
+  <app-users-list *ngIf="current == 'users'"></app-users-list>
+  <app-orders-list *ngIf="current == 'orders'"></app-orders-list>
+</div>
+
+<ng-template #showLogin>
+  תחילה יש להתחבר כמנהל מערכת
+  <app-login></app-login>
+</ng-template>

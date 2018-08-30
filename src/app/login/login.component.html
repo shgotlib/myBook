@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">התחבר</span>
+        <p>על מנת להמשיך עליך להתחבר כמנהל מערכת. אם אין ברשותך שם משתמש או סיסמה, תוכל ליצור חשבון חדש בעמוד זה.</p>
+        <div class="row">
+          <div class="input-field col s12">
+            <input [(ngModel)]="email" type="email" name="email">
+            <label for="email">דואר אלקטרוני</label>
+          </div>
+          <div class="input-field col s12">
+            <input [(ngModel)]="password" type="password" name="password">
+            <label for="password">סיסמה</label>
+          </div>
+        </div>
+      </div>
+      <div class="card-action">
+        <button class="btn" [disabled]="!email || !password" (click)="login()">התחברות</button>
+        <button class="btn" [disabled]="!email || !password" (click)="signup()">יצירת חשבון</button>
+      </div>
+    </div>
+  </div>
+</div>

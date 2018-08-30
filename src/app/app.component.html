@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>
+    <a style="color: #ffffff;" routerLink="/home">My Book Store</a>
+  </span>
+  <span class="toolbar-spacer"></span>
+  <a mat-raised-button color="primary" [routerLink]="['/cart']">Cart</a>
+  <button mat-raised-button color="accent" *ngIf="afAuth.authState | async; else login" (click)="logout()" [routerLink]="['/home']">Logout</button>
+  <a mat-raised-button color="primary" *ngIf="afAuth.authState | async" [routerLink]="['/dashboard']">Dashboard</a>
+  
+  <ng-template #login>
+    <button mat-raised-button color="accent" [routerLink]="['/login']">Login</button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="container" style="margin-top: 100px;">
+  <router-outlet></router-outlet>
+</div>

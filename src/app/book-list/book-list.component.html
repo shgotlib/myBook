@@ -1,0 +1,21 @@
+<div *ngIf="afAuth.authState | async; let user; else showLogin">
+  <mat-card>
+    <mat-card-header>Book List</mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let book of books">
+          <h3 mat-line>
+            <a mat-button [routerLink]="['/book-edit', book.id]">{{book.name}}</a>
+          </h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <button mat-raised-button color="primary" [routerLink]="['/book-add']">Add book</button>
+  </mat-card>
+</div>
+
+<ng-template #showLogin>
+  תחילה יש להתחבר כמנהל מערכת
+  <app-login></app-login>
+</ng-template>

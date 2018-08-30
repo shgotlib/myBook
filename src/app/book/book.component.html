@@ -1,0 +1,18 @@
+<mat-card class="book-card" *ngIf="book">
+  <mat-card-header>
+    <div mat-card-avatar class="book-header-image"></div>
+    <mat-card-title>{{ book.name }}</mat-card-title>
+    <mat-card-subtitle>By: {{ book.author }}</mat-card-subtitle>
+    <mat-card-subtitle>Quentity available: {{ book.qty }}</mat-card-subtitle>
+    <h3 style="margin-left: auto;">Price: {{ book.price | currency }}</h3>
+  </mat-card-header>
+  
+  <img mat-card-image src="/assets/cover.jpg" [alt]="book.name">
+  <mat-card-content>
+    <p>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="orderBook()" mat-button>ORDER NOW</button>
+  </mat-card-actions>
+</mat-card>
